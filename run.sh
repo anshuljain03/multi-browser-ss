@@ -49,7 +49,6 @@ node ./lib/take-screenshots.js
 ########################################################
 export AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
 export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
-export AWS_DEFAULT_REGION=us-east-1
 
 S3_BUCKET="browser-test-ss"
 TIMESTAMP=$(date +%s)
@@ -57,7 +56,7 @@ EXPIRY_TIME=1800 #sec
 
 function getPreSignedUrl {
     aws s3api put-object --bucket $S3_BUCKET --key $TIMESTAMP/$1.png  --body ./$1.png >/dev/null;
-    SIGNED_URL=$(aws s3 presign s3://$S3_BUCKET/$TIMESTAMP/$1.png --expires-in $EXPIRY_TIME);
+    SIGNED_URL=$(aws s3 presign s3://$S3_BUCKET/$TIMESTAMP/$1.png  --expires-in $EXPIRY_TIME --output text);
     echo "Presigned S3 url for $URL in $1: $SIGNED_URL"
     rm ./$1.png
 }
