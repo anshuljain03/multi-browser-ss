@@ -1,7 +1,7 @@
 #!bin/bash
 
 ########################################################
-# Ask for the website link and verify it
+# Ask for the website link and verify it exists
 ########################################################
 
 echo "Hey! Enter the website link"
