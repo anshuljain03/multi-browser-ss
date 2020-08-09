@@ -1,0 +1,9 @@
+{
+  "name": "multi-browser-screenshot",
+  "version": "1.0.0",
+  "description": "A CLI to take browser screenshots of the given webpage in firefox and chrome",
+  "dependencies": {
+    "async": "3.2.0",
+    "selenium-webdriver": "4.0.0-alpha.7"
+  }
+}
